@@ -7,28 +7,12 @@ import AppFrame from '../components/AppFrame';
 import { fetchCustomers } from '../actions/fetchCustomers';
 import PropTypes from 'prop-types';
 
-const customers = [
-    {
-        "dni"  : "27000000",
-        "name" : "Juan Perez",
-        "age"  : 37
-    },
-    {
-        "dni"  : "30000000",
-        "name" : "Manolito",
-        "age"  : 35
-    },
-    {
-        "dni"  : "26000000",
-        "name" : "Pepe nombre",
-        "age"  : 18
-    },
-];
 
 class CustomersContainer extends Component {
 
     componentDidMount = () => {
         this.props.fetchCustomers();
+    
     }
 
     handleAndNew = () => {
@@ -51,7 +35,7 @@ class CustomersContainer extends Component {
             <div>
                 <AppFrame 
                     header={'Listado de clientes'}
-                    body={this.renderBody(customers)}>    
+                    body={this.renderBody(this.props.customers)}>    
                 </AppFrame>
             </div>
         );
@@ -60,10 +44,16 @@ class CustomersContainer extends Component {
 
 CustomersContainer.propTypes = {
     fetchCustomers: PropTypes.func.isRequired,
+    customers: PropTypes.array.isRequired,
 };
 
-const mapDispatchToProps = dispatch => ({
-    fetchCustomers: () => dispatch(fetchCustomers()),
+CustomersContainer.defaultProps = {
+    customers : []
+};
+
+const mapsStateToProps = state => ({
+    customers: state.customers
 });
 
-export default withRouter(connect(null, mapDispatchToProps)(CustomersContainer));
+export default withRouter(
+    connect(mapsStateToProps, {fetchCustomers})(CustomersContainer));
