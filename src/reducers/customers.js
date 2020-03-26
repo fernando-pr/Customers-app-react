@@ -1,5 +1,5 @@
 import { handleActions } from 'redux-actions';
-import { FETCH_CUSTOMERS, INSERT_CUSTOMER, UPDATE_CUSTOMER } from './../constans';
+import { FETCH_CUSTOMERS, INSERT_CUSTOMER, UPDATE_CUSTOMER, DELETE_CUSTOMER } from './../constans';
 
 export const customers = handleActions({
     [FETCH_CUSTOMERS]:  (state, action) => [ ...action.payload],
@@ -9,18 +9,6 @@ export const customers = handleActions({
         const { id } = customerPayload; 
         const customers = state;
         const initialValue = [];
-        // primer iteracion
-        // acc = []
-        // { id: 1, name: '', ... }
-        // [ { id: 1, name: '', ... } ] 
-
-        // segunda iteración 
-        // acc = [ { id: 1, name: '', ... } ] 
-        // { id: 2, name: 'viejo nombre', ... } => { id: 2, name: 'nuevo nombre', ... }
-        // [ { id: 1, name: '', ... }, { id: 2, name: 'nuevo nombre', ... } ]
-        
-        // tercera iteración 
-        // acc = [ { id: 1, name: '', ... }, { id: 2, name: 'nuevo nombre', ... } ]
         const newCustomers = customers.reduce( (acc, customer) => {
             if (customer.id === id) {
                 return [ ...acc, customerPayload];
@@ -31,5 +19,5 @@ export const customers = handleActions({
 
         return newCustomers;
     },
-
+    [DELETE_CUSTOMER]: (state, action) => state.filter(c => c.id !== action.payload)
 }, []);

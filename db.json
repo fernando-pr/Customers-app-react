@@ -2,7 +2,7 @@
   "customers": [
     {
       "id": "30000001",
-      "dni": "30000002",
+      "dni": "30000012",
       "name": "PEPE PEREZ",
       "age": 32
     },
@@ -44,7 +44,7 @@
     },
     {
       "name": "PACO3",
-      "dni": "30000002",
+      "dni": "30000011",
       "age": 5,
       "id": "dx0cxMH"
     },
@@ -53,36 +53,6 @@
       "dni": "1233",
       "age": 3,
       "id": "K7zFxHj"
-    },
-    {
-      "name": "JUAN 3",
-      "dni": "30000002",
-      "age": 5,
-      "id": "roXnNyn"
-    },
-    {
-      "name": "JUAN 4",
-      "dni": "30000002",
-      "age": 3,
-      "id": "24ZyFQy"
-    },
-    {
-      "name": "JUAN 5",
-      "dni": "30000002",
-      "age": 1,
-      "id": "03j0kup"
-    },
-    {
-      "name": "JUAN 6",
-      "dni": "30000002",
-      "age": 1,
-      "id": "AzC2PZK"
-    },
-    {
-      "name": "JUAN 7",
-      "dni": "30000002",
-      "age": 1,
-      "id": "ICEOZAs"
     }
   ],
   "posts": [
